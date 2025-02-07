@@ -542,6 +542,12 @@
   .table {
     display: table;
   }
+  .w-\[30\%\] {
+    width: 30%;
+  }
+  .w-auto {
+    width: auto;
+  }
   .border-collapse {
     border-collapse: collapse;
   }
@@ -551,22 +557,15 @@
   .resize {
     resize: both;
   }
-  .space-x-3 {
-    :where(& > :not(:last-child)) {
-      --tw-space-x-reverse: 0;
-      margin-inline-start: calc(calc(var(--spacing) * 3) * var(--tw-space-x-reverse));
-      margin-inline-end: calc(calc(var(--spacing) * 3) * calc(1 - var(--tw-space-x-reverse)));
-    }
+  .justify-between {
+    justify-content: space-between;
   }
   .border {
     border-style: var(--tw-border-style);
     border-width: 1px;
   }
-  .bg-amber-700 {
-    background-color: var(--color-amber-700);
-  }
-  .text-red-700 {
-    color: var(--color-red-700);
+  .bg-amber-200 {
+    background-color: var(--color-amber-200);
   }
   .underline {
     text-decoration-line: underline;
@@ -575,6 +574,14 @@
     outline-style: var(--tw-outline-style);
     outline-width: 1px;
   }
+}
+button {
+  border: 1px solid gray;
+  padding: 5px;
+  border-radius: 30px;
+}
+button:hover {
+  cursor: pointer;
 }
 @keyframes spin {
   to {
@@ -626,11 +633,6 @@
   syntax: "*";
   inherits: false;
   initial-value: skewY(0);
-}
-@property --tw-space-x-reverse {
-  syntax: "*";
-  inherits: false;
-  initial-value: 0;
 }
 @property --tw-border-style {
   syntax: "*";

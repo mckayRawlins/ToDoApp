@@ -4,17 +4,31 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="scripts/index.js" defer></script>
     <link href="/src/output.css" rel="stylesheet">
     <title>To Do App</title>
 </head>
 
 <body>
-    <div class="bg-amber-700 flex space-x-3">
-        <p>yupper</p>
-        <p>yupper</p>
-        <p>yupper</p>
-        <p>yupper</p>
-    </div>
+    <main>
+        <label for="create-group-input">Create New Task Group:</label>
+        <input id="create-group-input" type="text" placeholder="Enter group name">
+        <button id="add-group">Add Group</button>
+
+        <div id="groups-container"></div>
+
+        <!--<template>-->
+        <div id="new-sticky-note" class="w-auto bg-amber-200">
+            <div class="flex justify-between"> <!--Sticky note header-->
+                <h1 id="group-name">Title</h1>
+                <button id="delete-group">Delete Group</button>
+            </div>
+            <input id="new-task-input" placeholder="Add task">
+            <button id="add-task">Add</button>
+            <button id="edit-task">Edit</button>
+        </div>
+        <!-- </template>-->
+    </main>
 </body>
 
 </html>
