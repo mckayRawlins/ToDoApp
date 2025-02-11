@@ -1,9 +1,14 @@
 @import "tailwindcss";
 
+input {
+    border: 1px solid gray;
+}
+
 button {
     border: 1px solid gray;
     padding: 5px;
     border-radius: 30px;
+    font-size: .9rem;
 }
 
 button:hover {
