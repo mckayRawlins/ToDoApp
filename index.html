@@ -20,22 +20,17 @@
         </div>
 
         <template id="stickyNoteTemplate">
-            <div id="new-sticky-note" class="w-auto bg-amber-200 p-5 m-5">
+            <div id="new-sticky-note" class="group-div w-auto bg-amber-200 p-5 m-5">
                 <div class="flex justify-between mb-5"> <!--Sticky note header-->
-                    <h1 id="group-name">Title</h1>
+                    <h1 class="group-name">Title</h1>
                     <button id="delete-group">Delete Group</button>
                     <button id="clear-tasks">Clear Tasks</button>
                 </div>
 
                 <input id="new-task-input" type="text" placeholder="Add task">
-                <button id="add-task" onclick="addTask()">Add</button>
+                <button id="add-task" onclick="addTask(event)">Add</button>
+
                 <div id="added-task-container" class="flex">
-                    <!--  <input id="completeTask" type="checkbox">
-                <ul>
-                    <li>Added Task</li>
-                </ul>
-                <button id="edit-task">Edit</button>
-                <button id="delete-task">Delete</button> -->
                 </div>
 
             </div>
