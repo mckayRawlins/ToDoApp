@@ -14,3 +14,8 @@ button {
 button:hover {
     cursor: pointer;
 }
+
+li {
+    display: flex;
+    justify-content: space-between;
+}
