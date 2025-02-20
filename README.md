@@ -6,7 +6,8 @@
         <div id="groups-container" class="flex justify-evenly flex-wrap w-[80%] mx-auto bg-slate-100">
 
         </div>
-
+        
+        <template>
             <div id="new-sticky-note" class="w-auto bg-amber-200 p-5 m-5">
                 <div class="flex justify-between mb-5"> <!--Sticky note header-->
                     <h1 class="group-name">Title</h1>
@@ -20,6 +21,7 @@
                 <div id="added-task-container" class="flex">
                 </div>
             </div>
+        </template>
         
     </main>
 
