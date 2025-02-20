@@ -1,6 +1,6 @@
 class TaskItem {
-    constructor(taskName) {
-        this.taskName = taskName;
+    constructor(name) {
+        this.name = name;
         this.id = Date.now();
     }
 }
@@ -14,18 +14,27 @@ class TaskGroup {
     selected = false;
 }
 
-let anyTaskGroup = new TaskGroup("Any task");
-anyTaskGroup.anythingIWant = { paramater: "Any thing I want" };
+const houseChores = new TaskGroup('house chores');
+const cleanDishes = new TaskItem('clean the dishes');
+const batheDog = new TaskItem('bathe the dog');
+houseChores.taskItems.push(cleanDishes);
+houseChores.taskItems.push(batheDog);
 
-let taskGroupsDB = [new TaskGroup('house chores'), new TaskGroup('lawn and garden')];
+const lawnAndGarden = new TaskGroup('lawn and garden');
+const mowLawn = new TaskItem('mow the lawn');
+const trimBushes = new TaskItem('trim the bushes');
+lawnAndGarden.taskItems.push(mowLawn);
+lawnAndGarden.taskItems.push(trimBushes);
+
+let taskGroupsDB = [houseChores, lawnAndGarden];
 refreshUI();
 
-function refreshUI() {
-    refreshTaskGroups();
+function getElement(id) {
+    return document.getElementById(id);
 }
 
-function refreshTaskGroups() {
-    const taskGroupUl = document.getElementById('task-group-ul');
+function refreshUI() {
+    const taskGroupUl = getElement('task-group-ul');
     taskGroupUl.innerHTML = '';
 
     taskGroupsDB.forEach(taskGroup => {
@@ -39,11 +48,25 @@ function refreshTaskGroups() {
         });
 
         taskGroupUl.appendChild(taskGroupLi);
+
+        const tasksUl = getElement('tasks-ul');
+        tasksUl.innerHTML = '';
+
+        taskGroup.taskItems.forEach(taskItem => {
+            const taskItemLi = document.createElement('li');
+            taskItemLi.taskItem = taskItem;
+            taskItemLi.innerText = taskItem.name;
+            taskItemLi.addEventListener('click', () => {
+                console.log("taskItem " + taskItem.name);
+            });
+
+            tasksUl.appendChild(taskItemLi);
+        });
     });
 }
 
 function deselectTaskGroups() {
-    const taskGroupUl = document.getElementById('task-group-ul');
+    const taskGroupUl = getElement('task-group-ul');
 
     for (let li of taskGroupUl.children) {
         li.taskGroup.selected = false;
@@ -52,16 +75,16 @@ function deselectTaskGroups() {
 }
 
 function addGroup() {
-    const newGroupInput = document.getElementById('new-group-input');
+    const newGroupInput = getElement('new-group-input');
     taskGroupsDB.push(new TaskGroup(newGroupInput.value));
     refreshUI();
 }
 
 function addNewTask() {
-    const newTaskInput = document.getElementById('new-task-input');
+    const newTaskInput = getElement('new-task-input');
     // Add a new TaskItem to the first taskgroup in the database with the user's input
     taskGroupsDB[0].taskItems.push(new TaskItem(newTaskInput.value));
-    console.log(taskGroupsDB[0]);
+    refreshUI();
 }
 
 
