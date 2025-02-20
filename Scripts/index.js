@@ -17,12 +17,6 @@ class TaskGroup {
 let anyTaskGroup = new TaskGroup("Any task");
 anyTaskGroup.anythingIWant = { paramater: "Any thing I want" };
 
-function addGroup() {
-    const newGroupInput = document.getElementById('new-group-input');
-    taskGroupsDB.push(new TaskGroup(newGroupInput.value));
-    refreshUI();
-}
-
 let taskGroupsDB = [new TaskGroup('house chores'), new TaskGroup('lawn and garden')];
 refreshUI();
 
@@ -55,6 +49,19 @@ function deselectTaskGroups() {
         li.taskGroup.selected = false;
         li.classList.remove('selected');
     }
+}
+
+function addGroup() {
+    const newGroupInput = document.getElementById('new-group-input');
+    taskGroupsDB.push(new TaskGroup(newGroupInput.value));
+    refreshUI();
+}
+
+function addNewTask() {
+    const newTaskInput = document.getElementById('new-task-input');
+    // Add a new TaskItem to the first taskgroup in the database with the user's input
+    taskGroupsDB[0].taskItems.push(new TaskItem(newTaskInput.value));
+    console.log(taskGroupsDB[0]);
 }
 
 
