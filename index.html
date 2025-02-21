@@ -11,29 +11,46 @@
     <title>To Do App</title>
 </head>
 
-<body>
-    <h1>create new task group</h1>
-    <input id="new-group-input" type="text" placeholder="enter group name">
-    <button onclick="addGroup()">add group</button>
-    <ul id="task-group-ul" class="flex">
-        <li>Houshold</li>
-        <li>Lawn</li>
+<body class="p-8">
+    <div class="new-group-container mx-auto w-[55%] mb-5 rounded-lg">
+        <div class="mb-5 rounded-t-lg p-3 bg-indigo-200">
+            <h1>create new task group</h1>
+        </div>
+
+        <div class="mb-5 px-5 flex justify-between items-center">
+            <input id="new-group-input" type="text" placeholder="enter group name">
+            <span onclick="addGroup()" class="fa fa-plus"></span>
+        </div>
+    </div>
+    <ul id="task-group-ul" class="flex mb-5">
     </ul>
 
-    <div class="list-container flex flex-col items-center w-[80%] mx-auto">
-        <div class="flex">
+
+
+    <div class="list-container flex flex-col items-center w-[55%] mx-auto rounded-lg">
+        <div class="flex justify-between items-center w-[100%] mb-5 rounded-t-lg p-3 bg-indigo-200">
             <h2 class="mx-5px">household chores</h2>
-            <span class="fa fa-trash"></span>
+            <div class>
+                <span class="fa fa-trash"></span>
+                <span class="fa fa-check"></button>
+            </div>
         </div>
-        <div class="flex justify-center">
-            <input id="new-task-input" type="text" placeholder="add task name">
-            <span id="add-new-task" onclick="addNewTask()" class="fa fa-plus"></span>
-            <span class="fa fa-check"></button>
+        <div class="w-[100%] p-3">
+            <div class="flex justify-between items-center w-[100%] mb-3">
+                <input id="new-task-input" type="text" placeholder="add task name">
+                <div>
+                    <span id="add-new-task" onclick="addNewTask()" class="fa fa-plus"></span>
+                </div>
+            </div>
+            <div class="w-[100%]">
+                <ul id="tasks-ul">
+                    <li>Clean table</li>
+                    <li>Sweep floors</li>
+                </ul>
+            </div>
         </div>
-        <ul id="tasks-ul" class="">
-            <li><input type="checkbox" />Clean table</li>
-            <li><input type="checkbox" />Sweep floors</li>
-        </ul>
+
+
     </div>
 
 

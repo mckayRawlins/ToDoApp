@@ -1,7 +1,14 @@
 @import "tailwindcss";
 
+/* * {
+    border: 1px solid green;
+} */
+
 input {
     border: 1px solid gray;
+    width: 50%;
+    padding: 5px;
+    border-radius: 30px;
 }
 
 button {
@@ -11,11 +18,17 @@ button {
     font-size: .9rem;
 }
 
-button:hover {
-    cursor: pointer;
+.fa {
+    color: gray;
 }
 
-.list-container {
+.fa:hover {
+    cursor: pointer;
+    color: lightgray;
+}
+
+.list-container,
+.new-group-container {
     border: 1px solid gray;
 }
 

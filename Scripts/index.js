@@ -26,7 +26,13 @@ const trimBushes = new TaskItem('trim the bushes');
 lawnAndGarden.taskItems.push(mowLawn);
 lawnAndGarden.taskItems.push(trimBushes);
 
-let taskGroupsDB = [houseChores, lawnAndGarden];
+const birthdayTasks = new TaskGroup('birthday party');
+const cake = new TaskItem('make the cake');
+const decore = new TaskItem('decorate house');
+birthdayTasks.taskItems.push(cake);
+birthdayTasks.taskItems.push(decore);
+
+let taskGroupsDB = [/* houseChores, lawnAndGarden, birthdayTasks */];
 refreshUI();
 
 function getElement(id) {
@@ -77,6 +83,7 @@ function deselectTaskGroups() {
 function addGroup() {
     const newGroupInput = getElement('new-group-input');
     taskGroupsDB.push(new TaskGroup(newGroupInput.value));
+    newGroupInput.value = '';
     refreshUI();
 }
 
