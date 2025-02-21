@@ -527,6 +527,9 @@
   .mx-auto {
     margin-inline: auto;
   }
+  .my-5 {
+    margin-block: calc(var(--spacing) * 5);
+  }
   .mb-3 {
     margin-bottom: calc(var(--spacing) * 3);
   }
@@ -563,8 +566,18 @@
   .justify-between {
     justify-content: space-between;
   }
+  .justify-center {
+    justify-content: center;
+  }
   .justify-evenly {
     justify-content: space-evenly;
+  }
+  .space-x-3 {
+    :where(& > :not(:last-child)) {
+      --tw-space-x-reverse: 0;
+      margin-inline-start: calc(calc(var(--spacing) * 3) * var(--tw-space-x-reverse));
+      margin-inline-end: calc(calc(var(--spacing) * 3) * calc(1 - var(--tw-space-x-reverse)));
+    }
   }
   .rounded-lg {
     border-radius: var(--radius-lg);
@@ -576,8 +589,8 @@
   .bg-amber-200 {
     background-color: var(--color-amber-200);
   }
-  .bg-indigo-200 {
-    background-color: var(--color-indigo-200);
+  .bg-rose-200 {
+    background-color: var(--color-rose-200);
   }
   .bg-slate-100 {
     background-color: var(--color-slate-100);
@@ -594,10 +607,13 @@
   .px-5 {
     padding-inline: calc(var(--spacing) * 5);
   }
+  .text-center {
+    text-align: center;
+  }
 }
 input {
   border: 1px solid gray;
-  width: 50%;
+  width: 30%;
   padding: 5px;
   border-radius: 30px;
 }
@@ -609,16 +625,29 @@ button {
 }
 .fa {
   color: gray;
+  border: 1px solid gray;
+  padding: 5px;
+  border-radius: 50%;
 }
 .fa:hover {
   cursor: pointer;
-  color: lightgray;
+  color: rgb(157, 206, 170);
+  border: 1px solid rgb(157, 206, 170);
 }
 .list-container, .new-group-container {
   border: 1px solid gray;
 }
 .selected {
-  background-color: yellow;
+  background-color: rgb(157, 206, 170);
+}
+#task-group-ul>li {
+  margin-right: 5px;
+  border: 1px solid gray;
+  padding: 10px;
+  border-radius: 30px;
+}
+#task-group-ul>li:hover {
+  cursor: pointer;
 }
 @keyframes spin {
   to {
@@ -645,4 +674,9 @@ button {
     transform: none;
     animation-timing-function: cubic-bezier(0, 0, 0.2, 1);
   }
+}
+@property --tw-space-x-reverse {
+  syntax: "*";
+  inherits: false;
+  initial-value: 0;
 }
