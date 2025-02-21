@@ -15,6 +15,10 @@ button:hover {
     cursor: pointer;
 }
 
+.list-container {
+    border: 1px solid gray;
+}
+
 .selected {
     background-color: yellow;
 }

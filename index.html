@@ -6,6 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="scripts/index.js" defer></script>
     <link href="/src/output.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css"
+        integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous" />
     <title>To Do App</title>
 </head>
 
@@ -13,14 +15,28 @@
     <h1>create new task group</h1>
     <input id="new-group-input" type="text" placeholder="enter group name">
     <button onclick="addGroup()">add group</button>
-    <ul id="task-group-ul"></ul>
+    <ul id="task-group-ul" class="flex">
+        <li>Houshold</li>
+        <li>Lawn</li>
+    </ul>
 
-    <h2>household chores</h2>
-    <input id="new-task-input" type="text" placeholder="add task name">
-    <button id="add-new-task" onclick="addNewTask()">add task</button>
-    <ul id="tasks-ul"></ul>
-    <!-- <button>clear completed tasks</button>
-    <button>delete group</button> -->
+    <div class="list-container flex flex-col items-center w-[80%] mx-auto">
+        <div class="flex">
+            <h2 class="mx-5px">household chores</h2>
+            <span class="fa fa-trash"></span>
+        </div>
+        <div class="flex justify-center">
+            <input id="new-task-input" type="text" placeholder="add task name">
+            <span id="add-new-task" onclick="addNewTask()" class="fa fa-plus"></span>
+            <span class="fa fa-check"></button>
+        </div>
+        <ul id="tasks-ul" class="">
+            <li><input type="checkbox" />Clean table</li>
+            <li><input type="checkbox" />Sweep floors</li>
+        </ul>
+    </div>
+
+
 
 </body>
 
