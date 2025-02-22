@@ -37,7 +37,7 @@ button {
 }
 
 .selected {
-    background-color: rgb(157, 206, 170);
+    background-color: rgb(204, 154, 220);
 }
 
 #task-group-ul>li {
@@ -49,4 +49,10 @@ button {
 
 #task-group-ul>li:hover {
     cursor: pointer;
+}
+
+#tasks-ul>li {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
 }

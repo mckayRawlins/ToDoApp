@@ -14,25 +14,7 @@ class TaskGroup {
     selected = false;
 }
 
-const houseChores = new TaskGroup('house chores');
-const cleanDishes = new TaskItem('clean the dishes');
-const batheDog = new TaskItem('bathe the dog');
-houseChores.taskItems.push(cleanDishes);
-houseChores.taskItems.push(batheDog);
-
-const lawnAndGarden = new TaskGroup('lawn and garden');
-const mowLawn = new TaskItem('mow the lawn');
-const trimBushes = new TaskItem('trim the bushes');
-lawnAndGarden.taskItems.push(mowLawn);
-lawnAndGarden.taskItems.push(trimBushes);
-
-const birthdayTasks = new TaskGroup('birthday party');
-const cake = new TaskItem('make the cake');
-const decore = new TaskItem('decorate house');
-birthdayTasks.taskItems.push(cake);
-birthdayTasks.taskItems.push(decore);
-
-let taskGroupsDB = [/* houseChores, lawnAndGarden, birthdayTasks */];
+let taskGroupsDB = [];
 refreshUI();
 
 function getElement(id) {
@@ -40,7 +22,7 @@ function getElement(id) {
 }
 
 function refreshUI() {
-    const taskGroupUl = getElement('task-group-ul');
+    var taskGroupUl = getElement('task-group-ul');
     taskGroupUl.innerHTML = '';
 
     taskGroupsDB.forEach(taskGroup => {
@@ -48,49 +30,74 @@ function refreshUI() {
         taskGroupLi.taskGroup = taskGroup;
         taskGroupLi.innerText = taskGroup.name;
         taskGroupLi.addEventListener('click', () => {
-            deselectTaskGroups();
-            taskGroup.selected = true;
             taskGroupLi.classList.add('selected');
+            selectTaskGroup(taskGroup.name);
         });
 
         taskGroupUl.appendChild(taskGroupLi);
-
-        const tasksUl = getElement('tasks-ul');
-        tasksUl.innerHTML = '';
-
-        taskGroup.taskItems.forEach(taskItem => {
-            const taskItemLi = document.createElement('li');
-            taskItemLi.taskItem = taskItem;
-            taskItemLi.innerText = taskItem.name;
-            taskItemLi.addEventListener('click', () => {
-                console.log("taskItem " + taskItem.name);
-            });
-
-            tasksUl.appendChild(taskItemLi);
-        });
+        taskGroup.taskItems.forEach(taskItemForeach);
     });
 }
 
-function deselectTaskGroups() {
+function taskItemForeach(taskItem) {
+    const taskItemLi = document.createElement('li');
+    taskItemLi.taskItem = taskItem;
+    taskItemLi.innerText = taskItem.name;
+    taskItemLi.addEventListener('click', () => {
+        console.log(`Task Item ${taskItem.name} is complete.`);
+    });
+
+    tasksUl.appendChild(taskItemLi);
+}
+
+// function createLi(propertyName, liObject, clickHandler) {
+//     const li = document.createElement('li');
+//     li[propertyName] = liObject;
+//     li.innerText = liObject.name;
+//     li.addEventListener('click', clickHandler);
+
+//     tasksUl.appendChild(li);
+// }
+
+// function selectNewestGroup() {
+//     const taskGroupUl = getElement('task-group-ul');
+
+//     var newestGroup = taskGroupUl.children[taskGroupUl.children.length - 1];
+//     newestGroup.taskGroup.selected = true;
+//     newestGroup.classList.add('selected');
+// }
+
+function selectTaskGroup(taskGroupName) {
     const taskGroupUl = getElement('task-group-ul');
 
     for (let li of taskGroupUl.children) {
         li.taskGroup.selected = false;
         li.classList.remove('selected');
     }
+
+    for (let li of taskGroupUl.children) {
+        if (li.taskGroup.name === taskGroupName) {
+            li.taskgGroup.selected = true;
+            li.classList.add('selected');
+        }
+    }
 }
 
 function addGroup() {
     const newGroupInput = getElement('new-group-input');
-    taskGroupsDB.push(new TaskGroup(newGroupInput.value));
+    // clear all selected from the current list
+
+    taskGroupsDB.push(new TaskGroup(newGroupInput.value, true));
     newGroupInput.value = '';
     refreshUI();
+    selectNewestGroup();
 }
 
 function addNewTask() {
     const newTaskInput = getElement('new-task-input');
     // Add a new TaskItem to the first taskgroup in the database with the user's input
     taskGroupsDB[0].taskItems.push(new TaskItem(newTaskInput.value));
+    newTaskInput.value = '';
     refreshUI();
 }
 
