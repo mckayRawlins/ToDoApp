@@ -51,8 +51,7 @@ button {
     cursor: pointer;
 }
 
-#tasks-ul>li {
+#task-items>li {
     width: 100%;
     display: flex;
-    justify-content: space-between;
 }
