@@ -2,13 +2,18 @@
 /* * {
     border: 1px solid green;
 } */
-body {
-  padding: 10px;
+main {
+  height: 100vh;
+  width: 100%;
+  background-image: url(/images/purple-mountains.jpg);
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
 }
 
 input[type=text] {
-  border: 1px solid gray;
-  width: 30%;
+  border: 1px solid white;
+  width: 50%;
   padding: 5px;
   border-radius: 10px;
 }
@@ -21,15 +26,15 @@ input[type=checkbox] {
 }
 
 .fa {
-  color: gray;
-  border: 1px solid gray;
+  color: white;
+  border: 1px solid white;
   padding: 5px;
   border-radius: 50%;
 }
 
 .fa-pencil-alt,
 .fa-save {
-  align-self: flex-end;
+  justify-self: flex-end;
 }
 
 .fa:hover {
@@ -44,10 +49,12 @@ input[type=checkbox] {
 }
 
 .selected {
-  background-color: rgb(213, 242, 255);
+  color: white;
 }
 
 #task-group-ul > li {
+  -webkit-backdrop-filter: blur(80px);
+          backdrop-filter: blur(80px);
   margin-right: 5px;
   border: 1px solid gray;
   padding: 10px;
@@ -58,10 +65,13 @@ input[type=checkbox] {
   cursor: pointer;
 }
 
-#task-items > li {
+#task-items li {
   width: 100%;
   padding: 5px;
   display: flex;
+  justify-content: space-between;
   align-items: center;
-  border: 1px solid black;
+  border: 1px solid white;
+  border-radius: 10px;
+  margin-bottom: 10px;
 }/*# sourceMappingURL=styles.css.map */

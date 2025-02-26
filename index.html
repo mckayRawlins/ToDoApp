@@ -11,42 +11,45 @@
     <title>To Do App</title>
 </head>
 
-<body class="p-8">
-    <h1 class="mx-auto text-center">Created Task Groups</h1>
-    <ul id="task-group-ul" class="flex justify-center space-x-3 my-5"></ul>
+<body>
+    <main class="p-5">
+        <h1 class="mx-auto text-center">Created Task Groups</h1>
+        <ul id="task-group-ul" class="flex justify-center space-x-3 my-5"></ul>
 
-    <div class="new-group-container mx-auto w-[55%] mb-5 rounded-lg">
-        <div class="mb-5 rounded-t-lg p-3 bg-orange-100">
-            <h1>Create New Task Group</h1>
-        </div>
+        <div class="new-group-container mx-auto w-[55%] mb-5 rounded-lg  bg-white/20 backdrop-blur-lg">
+            <div class="mb-5 rounded-t-lg p-3 bg-white/20 backdrop-blur-lg">
+                <h1>Create New Task Group</h1>
+            </div>
 
-        <div class="mb-5 px-5 flex justify-between items-center">
-            <input id="new-group-input" type="text" maxlength="25" placeholder="enter group name">
-            <span onclick="todoApp.addGroup()" class="fa fa-plus"></span>
-        </div>
-    </div>
-    <div class="list-container flex flex-col items-center w-[55%] mx-auto rounded-lg">
-        <div class="flex justify-between items-center w-[100%] mb-5 rounded-t-lg p-3 bg-orange-100">
-            <h2 id="task-group-name" class="mx-5px">No task group selected</h2>
-            <div class>
-                <span onclick="todoApp.removeTaskGroup()" class="fa fa-trash"></span>
-                <span onclick="todoApp.clearCompletedTasks()" class="fa fa-check"></button>
+            <div class="mb-5 px-5 flex justify-between items-center">
+                <input id="new-group-input" type="text" maxlength="25" placeholder="enter group name">
+                <span onclick="todoApp.addGroup()" class="fa fa-plus"></span>
             </div>
         </div>
-
-        <div class="w-[100%] p-3">
-            <div class="flex justify-between items-center w-[100%] mb-3">
-                <input id="new-task-input" type="text" placeholder="add task name">
-                <div>
-                    <span id="add-new-task" onclick="todoApp.addTask()" class="fa fa-plus"></span>
+        <div class="list-container flex flex-col items-center w-[55%] mx-auto rounded-lg  bg-white/20 backdrop-blur-lg">
+            <div class="flex justify-between items-center w-[100%] mb-5 rounded-t-lg p-3 bg-white/20 backdrop-blur-lg">
+                <h2 id="task-group-name" class="mx-5px">No task group selected</h2>
+                <div class>
+                    <span onclick="todoApp.removeTaskGroup()" class="fa fa-trash"></span>
+                    <span onclick="todoApp.clearCompletedTasks()" class="fa fa-check"></button>
                 </div>
             </div>
 
-            <div class="w-[100%]">
-                <ul id="task-items"></ul>
+            <div class="w-[100%] p-3">
+                <div class="flex justify-between items-center w-[100%] mb-3">
+                    <input id="new-task-input" type="text" placeholder="add task name">
+                    <div>
+                        <span id="add-new-task" onclick="todoApp.addTask()" class="fa fa-plus"></span>
+                    </div>
+                </div>
+
+                <div class="w-[100%]">
+                    <ul id="task-items"></ul>
+                </div>
             </div>
         </div>
-    </div>
+    </main>
+
 </body>
 
 </html>

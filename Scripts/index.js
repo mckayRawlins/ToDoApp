@@ -48,6 +48,7 @@ class TodoApp {
         editTaskButton.classList.add('fa');
         editTaskButton.classList.add('fa-pencil-alt');
 
+
         taskItemLi.appendChild(checkbox);
         taskItemLi.appendChild(nameSpan);
         taskItemLi.appendChild(editTaskButton);
