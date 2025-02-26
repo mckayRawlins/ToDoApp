@@ -53,6 +53,35 @@ class TodoApp {
         taskItemLi.appendChild(editTaskButton);
 
         this.taskItemsUl().appendChild(taskItemLi);
+
+        let originalText;
+
+        editTaskButton.addEventListener('click', () => {
+            originalText = nameSpan.textContent;
+            const editTaskInput = document.createElement('input');
+            const saveTaskEdit = document.createElement('span');
+            saveTaskEdit.classList.add('fa');
+            saveTaskEdit.classList.add('fa-save');
+            taskItemLi.removeChild(editTaskButton);
+            taskItemLi.appendChild(saveTaskEdit);
+            editTaskInput.type = 'text';
+            editTaskInput.value = originalText;
+            nameSpan.textContent = '';
+            nameSpan.appendChild(editTaskInput);
+
+            saveTaskEdit.addEventListener('click', () => {
+                console.log('saved');
+                nameSpan.textContent = editTaskInput.value;
+                taskItem.name = editTaskInput.value;
+                taskItemLi.removeChild(saveTaskEdit);
+                taskItemLi.appendChild(editTaskButton);
+                console.log(this.taskGroupsDB);
+                this.save();
+            });
+        }
+
+
+        )
     }
 
     clearCompletedTasks() {

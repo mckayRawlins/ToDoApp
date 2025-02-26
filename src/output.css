@@ -521,6 +521,12 @@
   }
 }
 @layer utilities {
+  .collapse {
+    visibility: collapse;
+  }
+  .relative {
+    position: relative;
+  }
   .m-5 {
     margin: calc(var(--spacing) * 5);
   }
@@ -536,8 +542,20 @@
   .mb-5 {
     margin-bottom: calc(var(--spacing) * 5);
   }
+  .block {
+    display: block;
+  }
   .flex {
     display: flex;
+  }
+  .inline-flex {
+    display: inline-flex;
+  }
+  .list-item {
+    display: list-item;
+  }
+  .table {
+    display: table;
   }
   .w-\[55\%\] {
     width: 55%;
@@ -550,6 +568,15 @@
   }
   .w-auto {
     width: auto;
+  }
+  .border-collapse {
+    border-collapse: collapse;
+  }
+  .transform {
+    transform: var(--tw-rotate-x) var(--tw-rotate-y) var(--tw-rotate-z) var(--tw-skew-x) var(--tw-skew-y);
+  }
+  .resize {
+    resize: both;
   }
   .flex-col {
     flex-direction: column;
@@ -583,6 +610,10 @@
     border-top-left-radius: var(--radius-lg);
     border-top-right-radius: var(--radius-lg);
   }
+  .border {
+    border-style: var(--tw-border-style);
+    border-width: 1px;
+  }
   .bg-amber-200 {
     background-color: var(--color-amber-200);
   }
@@ -607,51 +638,16 @@
   .text-center {
     text-align: center;
   }
+  .underline {
+    text-decoration-line: underline;
+  }
+  .outline {
+    outline-style: var(--tw-outline-style);
+    outline-width: 1px;
+  }
   .filter {
     filter: var(--tw-blur,) var(--tw-brightness,) var(--tw-contrast,) var(--tw-grayscale,) var(--tw-hue-rotate,) var(--tw-invert,) var(--tw-saturate,) var(--tw-sepia,) var(--tw-drop-shadow,);
   }
-}
-input[type='text'] {
-  border: 1px solid gray;
-  width: 30%;
-  padding: 5px;
-  border-radius: 10px;
-}
-input[type='checkbox'] {
-  padding: 10px;
-  width: 15px;
-  border-radius: 50%;
-  margin-right: 10px;
-}
-.fa {
-  color: gray;
-  border: 1px solid gray;
-  padding: 5px;
-  border-radius: 50%;
-}
-.fa:hover {
-  cursor: pointer;
-  color: rgb(73, 73, 73);
-  border: 1px solid rgb(73, 73, 73);
-}
-.list-container, .new-group-container {
-  border: 1px solid gray;
-}
-.selected {
-  background-color: rgb(213, 242, 255);
-}
-#task-group-ul>li {
-  margin-right: 5px;
-  border: 1px solid gray;
-  padding: 10px;
-  border-radius: 10px;
-}
-#task-group-ul>li:hover {
-  cursor: pointer;
-}
-#task-items>li {
-  width: 100%;
-  display: flex;
 }
 @keyframes spin {
   to {
@@ -679,10 +675,45 @@ input[type='checkbox'] {
     animation-timing-function: cubic-bezier(0, 0, 0.2, 1);
   }
 }
+@property --tw-rotate-x {
+  syntax: "*";
+  inherits: false;
+  initial-value: rotateX(0);
+}
+@property --tw-rotate-y {
+  syntax: "*";
+  inherits: false;
+  initial-value: rotateY(0);
+}
+@property --tw-rotate-z {
+  syntax: "*";
+  inherits: false;
+  initial-value: rotateZ(0);
+}
+@property --tw-skew-x {
+  syntax: "*";
+  inherits: false;
+  initial-value: skewX(0);
+}
+@property --tw-skew-y {
+  syntax: "*";
+  inherits: false;
+  initial-value: skewY(0);
+}
 @property --tw-space-x-reverse {
   syntax: "*";
   inherits: false;
   initial-value: 0;
+}
+@property --tw-border-style {
+  syntax: "*";
+  inherits: false;
+  initial-value: solid;
+}
+@property --tw-outline-style {
+  syntax: "*";
+  inherits: false;
+  initial-value: solid;
 }
 @property --tw-blur {
   syntax: "*";
