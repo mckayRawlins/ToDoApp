@@ -4,19 +4,20 @@
     border: 1px solid green;
 } */
 
-input {
+input[type='text'] {
     border: 1px solid gray;
     width: 30%;
     padding: 5px;
-    border-radius: 30px;
+    border-radius: 10px;
 }
 
-button {
-    border: 1px solid gray;
-    padding: 5px;
-    border-radius: 30px;
-    font-size: .9rem;
+input[type='checkbox'] {
+    padding: 10px;
+    width: 15px;
+    border-radius: 50%;
+    margin-right: 10px;
 }
+
 
 .fa {
     color: gray;
@@ -27,8 +28,8 @@ button {
 
 .fa:hover {
     cursor: pointer;
-    color: rgb(157, 206, 170);
-    border: 1px solid rgb(157, 206, 170);
+    color: rgb(73, 73, 73);
+    border: 1px solid rgb(73, 73, 73);
 }
 
 .list-container,
@@ -37,14 +38,14 @@ button {
 }
 
 .selected {
-    background-color: rgb(204, 154, 220);
+    background-color: rgb(213, 242, 255);
 }
 
 #task-group-ul>li {
     margin-right: 5px;
     border: 1px solid gray;
     padding: 10px;
-    border-radius: 30px;
+    border-radius: 10px;
 }
 
 #task-group-ul>li:hover {

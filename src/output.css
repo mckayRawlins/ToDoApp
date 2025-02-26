@@ -539,9 +539,6 @@
   .flex {
     display: flex;
   }
-  .table {
-    display: table;
-  }
   .w-\[55\%\] {
     width: 55%;
   }
@@ -589,8 +586,8 @@
   .bg-amber-200 {
     background-color: var(--color-amber-200);
   }
-  .bg-rose-200 {
-    background-color: var(--color-rose-200);
+  .bg-orange-100 {
+    background-color: var(--color-orange-100);
   }
   .bg-slate-100 {
     background-color: var(--color-slate-100);
@@ -610,18 +607,21 @@
   .text-center {
     text-align: center;
   }
+  .filter {
+    filter: var(--tw-blur,) var(--tw-brightness,) var(--tw-contrast,) var(--tw-grayscale,) var(--tw-hue-rotate,) var(--tw-invert,) var(--tw-saturate,) var(--tw-sepia,) var(--tw-drop-shadow,);
+  }
 }
-input {
+input[type='text'] {
   border: 1px solid gray;
   width: 30%;
   padding: 5px;
-  border-radius: 30px;
+  border-radius: 10px;
 }
-button {
-  border: 1px solid gray;
-  padding: 5px;
-  border-radius: 30px;
-  font-size: .9rem;
+input[type='checkbox'] {
+  padding: 10px;
+  width: 15px;
+  border-radius: 50%;
+  margin-right: 10px;
 }
 .fa {
   color: gray;
@@ -631,28 +631,27 @@ button {
 }
 .fa:hover {
   cursor: pointer;
-  color: rgb(157, 206, 170);
-  border: 1px solid rgb(157, 206, 170);
+  color: rgb(73, 73, 73);
+  border: 1px solid rgb(73, 73, 73);
 }
 .list-container, .new-group-container {
   border: 1px solid gray;
 }
 .selected {
-  background-color: rgb(204, 154, 220);
+  background-color: rgb(213, 242, 255);
 }
 #task-group-ul>li {
   margin-right: 5px;
   border: 1px solid gray;
   padding: 10px;
-  border-radius: 30px;
+  border-radius: 10px;
 }
 #task-group-ul>li:hover {
   cursor: pointer;
 }
-#tasks-ul>li {
+#task-items>li {
   width: 100%;
   display: flex;
-  justify-content: space-between;
 }
 @keyframes spin {
   to {
@@ -684,4 +683,40 @@ button {
   syntax: "*";
   inherits: false;
   initial-value: 0;
+}
+@property --tw-blur {
+  syntax: "*";
+  inherits: false;
+}
+@property --tw-brightness {
+  syntax: "*";
+  inherits: false;
+}
+@property --tw-contrast {
+  syntax: "*";
+  inherits: false;
+}
+@property --tw-grayscale {
+  syntax: "*";
+  inherits: false;
+}
+@property --tw-hue-rotate {
+  syntax: "*";
+  inherits: false;
+}
+@property --tw-invert {
+  syntax: "*";
+  inherits: false;
+}
+@property --tw-opacity {
+  syntax: "*";
+  inherits: false;
+}
+@property --tw-saturate {
+  syntax: "*";
+  inherits: false;
+}
+@property --tw-sepia {
+  syntax: "*";
+  inherits: false;
 }
