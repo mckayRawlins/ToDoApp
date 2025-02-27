@@ -45,13 +45,14 @@ class TodoApp {
         nameSpan.innerHTML = taskItem.name;
 
         const editTaskButton = document.createElement('span');
-        editTaskButton.classList.add('fa');
-        editTaskButton.classList.add('fa-pencil-alt');
-
+        editTaskButton.classList.add('fa', 'fa-pencil-alt');
+        const deleteTaskButton = document.createElement('span');
+        deleteTaskButton.classList.add('fa', 'fa-trash');
 
         taskItemLi.appendChild(checkbox);
         taskItemLi.appendChild(nameSpan);
         taskItemLi.appendChild(editTaskButton);
+        taskItemLi.appendChild(deleteTaskButton);
 
         this.taskItemsUl().appendChild(taskItemLi);
 
@@ -61,10 +62,9 @@ class TodoApp {
             originalText = nameSpan.textContent;
             const editTaskInput = document.createElement('input');
             const saveTaskEdit = document.createElement('span');
-            saveTaskEdit.classList.add('fa');
-            saveTaskEdit.classList.add('fa-save');
-            taskItemLi.removeChild(editTaskButton);
+            saveTaskEdit.classList.add('fa', 'fa-save');
             taskItemLi.appendChild(saveTaskEdit);
+            taskItemLi.removeChild(editTaskButton);
             editTaskInput.type = 'text';
             editTaskInput.value = originalText;
             nameSpan.textContent = '';
@@ -79,10 +79,17 @@ class TodoApp {
                 console.log(this.taskGroupsDB);
                 this.save();
             });
-        }
+        });
 
-
-        )
+        deleteTaskButton.addEventListener('click', () => {
+            // console.log(this.selectedTaskGroup().taskItems);
+            console.log(taskItem);
+            const selectedTaskItem = this.selectedTaskGroup();
+            selectedTaskItem.taskItems = selectedTaskItem.taskItems.filter(task => task.id !== taskItem.id);
+            console.log(selectedTaskItem.taskItems);
+            this.taskItemsUl().removeChild(taskItemLi)
+            this.save();
+        });
     }
 
     clearCompletedTasks() {
@@ -157,7 +164,6 @@ class TodoApp {
     }
 
     taskGroupUl() {
-
         return this.getElement('task-group-ul');
     }
 
@@ -168,6 +174,10 @@ class TodoApp {
     selectedTaskGroup() {
         return this.taskGroupsDB.find(taskGroup => taskGroup.selected);
     }
+
+    /*  selectedTaskItem() {
+         return this.selectedTaskGroup.taskItems.find(taskItem => taskItem.id);
+     } */
 
     save() {
         localStorage.setItem('task-groups', JSON.stringify(this.taskGroupsDB));

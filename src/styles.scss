@@ -5,8 +5,9 @@
 } */
 
 main {
-    height: 100vh;
+    height: auto;
     width: 100%;
+    min-height: 100vh;
     background-image: url(/images/purple-mountains.jpg);
     background-position: center;
     background-size: cover;
@@ -51,11 +52,11 @@ input[type=checkbox] {
 }
 
 .selected {
-    color: white;
+    background-color: white;
+
 }
 
 #task-group-ul>li {
-    backdrop-filter: blur(80px);
     margin-right: 5px;
     border: 1px solid gray;
     padding: 10px;

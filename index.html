@@ -13,8 +13,9 @@
 
 <body>
     <main class="p-5">
-        <h1 class="mx-auto text-center">Created Task Groups</h1>
-        <ul id="task-group-ul" class="flex justify-center space-x-3 my-5"></ul>
+        <h1 class="mx-auto text-center bg-white/70 backdrop-blur-lg py-3 rounded-t-lg">Created Task Groups</h1>
+        <ul id="task-group-ul"
+            class="flex justify-center space-x-3 mb-5 w-[100%] bg-white/40 backdrop-blur-lg py-3 rounded-b-lg"></ul>
 
         <div class="new-group-container mx-auto w-[55%] mb-5 rounded-lg  bg-white/20 backdrop-blur-lg">
             <div class="mb-5 rounded-t-lg p-3 bg-white/20 backdrop-blur-lg">
@@ -26,6 +27,7 @@
                 <span onclick="todoApp.addGroup()" class="fa fa-plus"></span>
             </div>
         </div>
+
         <div class="list-container flex flex-col items-center w-[55%] mx-auto rounded-lg  bg-white/20 backdrop-blur-lg">
             <div class="flex justify-between items-center w-[100%] mb-5 rounded-t-lg p-3 bg-white/20 backdrop-blur-lg">
                 <h2 id="task-group-name" class="mx-5px">No task group selected</h2>
