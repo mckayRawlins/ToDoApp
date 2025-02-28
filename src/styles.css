@@ -29,8 +29,9 @@ input[type=checkbox] {
 .fa {
   color: white;
   border: 1px solid white;
-  padding: 5px;
+  padding: 0.5rem;
   border-radius: 50%;
+  font-size: 0.9rem;
 }
 
 .fa-pencil-alt,
