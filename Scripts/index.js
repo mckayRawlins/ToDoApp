@@ -63,7 +63,6 @@ class TodoApp {
             const editTaskInput = document.createElement('input');
             const saveTaskEdit = document.createElement('span');
             saveTaskEdit.classList.add('fa', 'fa-save');
-            //taskItemLi.appendChild(saveTaskEdit);
             taskItemLi.insertBefore(saveTaskEdit, deleteTaskButton);
             taskItemLi.removeChild(editTaskButton);
             editTaskInput.type = 'text';
@@ -72,11 +71,9 @@ class TodoApp {
             nameSpan.appendChild(editTaskInput);
 
             saveTaskEdit.addEventListener('click', () => {
-                console.log('saved');
                 nameSpan.textContent = editTaskInput.value;
                 taskItem.name = editTaskInput.value;
                 taskItemLi.removeChild(saveTaskEdit);
-                //taskItemLi.appendChild(editTaskButton);
                 taskItemLi.insertBefore(editTaskButton, deleteTaskButton);
                 console.log(this.taskGroupsDB);
                 this.save();
@@ -85,7 +82,6 @@ class TodoApp {
 
         deleteTaskButton.addEventListener('click', () => {
             // console.log(this.selectedTaskGroup().taskItems);
-            console.log(taskItem);
             const selectedTaskItem = this.selectedTaskGroup();
             selectedTaskItem.taskItems = selectedTaskItem.taskItems.filter(task => task.id !== taskItem.id);
             console.log(selectedTaskItem.taskItems);
