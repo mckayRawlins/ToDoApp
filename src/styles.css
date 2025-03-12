@@ -1,4 +1,5 @@
 @import url(output.css);
+
 /* * {
     border: 1px solid green;
 } */
@@ -6,7 +7,7 @@ main {
   height: auto;
   width: 100%;
   min-height: 100vh;
-  background-image: url(/images/blue-mountains.jpg);
+  background-image: url(/images/test-image.jpg);
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
@@ -54,14 +55,14 @@ input[type=checkbox] {
   background-color: white;
 }
 
-#task-group-ul > li {
+#task-group-ul>li {
   margin-right: 5px;
   border: 1px solid gray;
   padding: 10px;
   border-radius: 10px;
 }
 
-#task-group-ul > li:hover {
+#task-group-ul>li:hover {
   cursor: pointer;
 }
 
@@ -74,4 +75,6 @@ input[type=checkbox] {
   border: 1px solid white;
   border-radius: 10px;
   margin-bottom: 10px;
-}/*# sourceMappingURL=styles.css.map */
+}
+
+/*# sourceMappingURL=styles.css.map */
